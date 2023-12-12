@@ -1,0 +1,20 @@
+name: Create VM on Dev Push
+
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Run VM creation script
+        run: |
+          chmod +x assignment10/create_vm.sh
+          ./assignment10/create_vm.sh
+
